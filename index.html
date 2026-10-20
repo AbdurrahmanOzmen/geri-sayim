@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#10131f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Geri Sayım">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>5 Şubat 2027 — Geri Sayım</title>
+<style>
+:root{color-scheme:dark;--bg:#10131f;--panel:#191e2e;--muted:#9da8c1;--white:#f7f8fc;--accent:#91f2c3}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;min-height:100dvh;background:radial-gradient(ellipse at 50% -10%,#293854 0%,var(--bg) 58%);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--white);display:flex;align-items:center;justify-content:center;padding:24px}
+main{width:min(100%,520px);text-align:center}.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px}
+h1{font-size:clamp(30px,8vw,46px);line-height:1.05;letter-spacing:-.04em;margin:0 0 12px}.subtitle{color:var(--muted);font-size:15px;margin:0 0 34px}
+.clock{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.unit{background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.09);border-radius:22px;padding:23px 10px 19px;box-shadow:0 18px 45px rgba(0,0,0,.18)}
+.num{font-variant-numeric:tabular-nums;font-size:clamp(43px,12vw,64px);font-weight:750;line-height:1;letter-spacing:-.055em}
+.label{margin-top:11px;color:var(--muted);font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.footer{margin-top:28px;color:#7e8aa5;font-size:12px;line-height:1.6}.pulse{display:inline-block;width:7px;height:7px;background:var(--accent);border-radius:50%;margin-right:7px;box-shadow:0 0 12px var(--accent)}
+.done{font-size:22px;color:var(--accent);margin-top:20px}
+@media(min-width:460px){.clock{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.unit{padding:24px 6px 20px}.num{font-size:clamp(36px,7vw,52px)}}
+</style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">Geri sayım başladı</div>
+  <h1>5 Şubat 2027</h1>
+  <p class="subtitle">Hedefe kalan süre</p>
+  <section class="clock" aria-label="Kalan süre">
+    <div class="unit"><div class="num" id="days">000</div><div class="label">Gün</div></div>
+    <div class="unit"><div class="num" id="hours">00</div><div class="label">Saat</div></div>
+    <div class="unit"><div class="num" id="minutes">00</div><div class="label">Dakika</div></div>
+    <div class="unit"><div class="num" id="seconds">00</div><div class="label">Saniye</div></div>
+  </section>
+  <div id="message" class="done" hidden>Vakit geldi. Şimdi sıra sende. 🚀</div>
+  <div class="footer"><span class="pulse"></span>Canlı sayaç · Türkiye saati (UTC+3)<br>Hedef: 5 Şubat 2027, 00.00</div>
+</main>
+<script>
+const target = new Date('2027-02-05T00:00:00+03:00').getTime();
+const $ = id => document.getElementById(id);
+function tick(){
+  let diff = Math.max(0, target - Date.now());
+  const day = 86400000, hour = 3600000, minute = 60000;
+  const d = Math.floor(diff/day); diff %= day;
+  const h = Math.floor(diff/hour); diff %= hour;
+  const m = Math.floor(diff/minute); diff %= minute;
+  const s = Math.floor(diff/1000);
+  $('days').textContent = String(d).padStart(3,'0');
+  $('hours').textContent = String(h).padStart(2,'0');
+  $('minutes').textContent = String(m).padStart(2,'0');
+  $('seconds').textContent = String(s).padStart(2,'0');
+  $('message').hidden = target > Date.now();
+}
+tick(); setInterval(tick, 250);
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+}
+</script>
+</body>
+</html>
