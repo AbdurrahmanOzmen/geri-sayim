@@ -1,63 +1,61 @@
 <!doctype html>
 <html lang="tr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#10131f">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Geri Sayım">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icon-192.png">
-<title>5 Şubat 2027 — Geri Sayım</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1020"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="Geri Sayım">
+<link rel="manifest" href="manifest.json"><link rel="apple-touch-icon" href="icon-192.png"><title>Geri Sayım</title>
 <style>
-:root{color-scheme:dark;--bg:#10131f;--panel:#191e2e;--muted:#9da8c1;--white:#f7f8fc;--accent:#91f2c3}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;min-height:100dvh;background:radial-gradient(ellipse at 50% -10%,#293854 0%,var(--bg) 58%);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--white);display:flex;align-items:center;justify-content:center;padding:24px}
-main{width:min(100%,520px);text-align:center}.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px}
-h1{font-size:clamp(30px,8vw,46px);line-height:1.05;letter-spacing:-.04em;margin:0 0 12px}.subtitle{color:var(--muted);font-size:15px;margin:0 0 34px}
-.clock{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.unit{background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.09);border-radius:22px;padding:23px 10px 19px;box-shadow:0 18px 45px rgba(0,0,0,.18)}
-.num{font-variant-numeric:tabular-nums;font-size:clamp(43px,12vw,64px);font-weight:750;line-height:1;letter-spacing:-.055em}
-.label{margin-top:11px;color:var(--muted);font-size:12px;letter-spacing:.16em;text-transform:uppercase}
-.footer{margin-top:28px;color:#7e8aa5;font-size:12px;line-height:1.6}.pulse{display:inline-block;width:7px;height:7px;background:var(--accent);border-radius:50%;margin-right:7px;box-shadow:0 0 12px var(--accent)}
-.done{font-size:22px;color:var(--accent);margin-top:20px}
-@media(min-width:460px){.clock{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.unit{padding:24px 6px 20px}.num{font-size:clamp(36px,7vw,52px)}}
-</style>
-</head>
-<body>
-<main>
-  <div class="eyebrow">Geri sayım başladı</div>
-  <h1>5 Şubat 2027</h1>
-  <p class="subtitle">Hedefe kalan süre</p>
-  <section class="clock" aria-label="Kalan süre">
-    <div class="unit"><div class="num" id="days">000</div><div class="label">Gün</div></div>
-    <div class="unit"><div class="num" id="hours">00</div><div class="label">Saat</div></div>
-    <div class="unit"><div class="num" id="minutes">00</div><div class="label">Dakika</div></div>
-    <div class="unit"><div class="num" id="seconds">00</div><div class="label">Saniye</div></div>
-  </section>
-  <div id="message" class="done" hidden>Vakit geldi. Şimdi sıra sende. 🚀</div>
-  <div class="footer"><span class="pulse"></span>Canlı sayaç · Türkiye saati (UTC+3)<br>Hedef: 5 Şubat 2027, 00.00</div>
+:root{color-scheme:dark;--bg:#0b1020;--panel:#141c30;--muted:#9ba9c6;--text:#f5f7ff;--accent:#9bf3cd;--line:#28344d}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;min-height:100dvh;background:radial-gradient(ellipse at 50% -15%,#293c5c 0%,var(--bg) 58%);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);padding:20px;display:flex;justify-content:center}
+main{width:min(100%,620px);padding:8px 0 24px}.top{display:flex;align-items:center;justify-content:space-between;margin:0 0 24px}.brand{font-weight:800;letter-spacing:.08em;font-size:12px;color:var(--accent)}.pill{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:7px 10px}
+.hero{text-align:center;padding:24px 8px 26px}.eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:750;margin-bottom:13px}h1{font-size:clamp(30px,8vw,46px);line-height:1.05;letter-spacing:-.05em;margin:0 0 12px;overflow-wrap:anywhere}.subtitle{color:var(--muted);font-size:14px;margin:0}.clock{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.unit{background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:22px 8px 17px;text-align:center;box-shadow:0 15px 35px #0002}.num{font-size:clamp(42px,11vw,62px);font-weight:800;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.06em}.label{font-size:10px;letter-spacing:.18em;color:var(--muted);margin-top:11px}.progress-card,.panel,.event-card{margin-top:18px;background:#141c30cc;border:1px solid var(--line);border-radius:20px;padding:17px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.section-head h2,.panel h2{font-size:14px;margin:0}.muted{font-size:11px;color:var(--muted)}.track{height:7px;border-radius:99px;background:#26314a;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,#68d8ae,#b8f6da);border-radius:99px;transition:width .3s}.progress-meta{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin-top:9px}.events{display:grid;gap:10px;margin-top:12px}.event-card{margin:0;padding:14px;display:flex;align-items:center;gap:12px}.event-icon{width:42px;height:42px;display:grid;place-items:center;background:#22314a;border-radius:13px;font-size:20px;flex-shrink:0}.event-info{min-width:0;flex:1}.event-title{font-weight:750;font-size:14px;overflow-wrap:anywhere}.event-date{font-size:11px;color:var(--muted);margin-top:5px}.event-actions{display:flex;gap:6px;flex-direction:column}.smallbtn{border:1px solid #394763;background:#202b42;color:#e9efff;padding:7px 9px;border-radius:9px;font-size:11px;cursor:pointer}.fields{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:14px}.field{display:flex;flex-direction:column;gap:7px;min-width:0}.full{grid-column:1/-1}label{font-size:11px;color:var(--muted)}input,select,textarea{width:100%;min-width:0;border:1px solid #394763;background:#0d1425;color:var(--text);border-radius:11px;padding:12px;font:inherit;font-size:14px}textarea{resize:vertical;min-height:70px}.btn{width:100%;border:0;border-radius:12px;background:var(--accent);color:#102019;font-weight:800;font-size:14px;padding:13px;margin-top:12px;cursor:pointer}.btn.secondary{background:#253149;color:#f5f7ff;border:1px solid #3b4964}.btn.danger{background:#3a2633;color:#ffd7df;border:1px solid #754052}.rowbtn{display:grid;grid-template-columns:1fr 1fr;gap:8px}.checkrow{display:flex;gap:9px;align-items:center;color:var(--muted);font-size:12px;margin-top:12px}.checkrow input{width:17px;height:17px}.empty{color:var(--muted);font-size:12px;text-align:center;padding:18px 6px}.toast{position:fixed;left:16px;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));max-width:580px;margin:auto;background:#e5fff3;color:#102019;border-radius:13px;padding:12px 15px;font-size:13px;font-weight:700;box-shadow:0 10px 40px #0005;z-index:5}.foot{text-align:center;color:#7786a5;font-size:10px;line-height:1.7;margin-top:20px}
+@media(min-width:480px){.clock{grid-template-columns:repeat(4,1fr)}.num{font-size:clamp(34px,6vw,50px)}}
+</style></head>
+<body><main>
+<div class="top"><div class="brand">◷ GERİ SAYIM</div><div class="pill">Kişisel hedef panon</div></div>
+<section class="hero"><div class="eyebrow">Her saniye hedefine daha yakın</div><h1 id="heroTitle">5 Şubat 2027</h1><p class="subtitle" id="heroSub">Hedefine kalan süre</p></section>
+<section class="clock" aria-label="Kalan süre"><div class="unit"><div class="num" id="days">000</div><div class="label">GÜN</div></div><div class="unit"><div class="num" id="hours">00</div><div class="label">SAAT</div></div><div class="unit"><div class="num" id="minutes">00</div><div class="label">DAKİKA</div></div><div class="unit"><div class="num" id="seconds">00</div><div class="label">SANİYE</div></div></section>
+<section class="progress-card"><div class="section-head"><h2>Hedef yolculuğu</h2><span class="muted" id="progressPct">—</span></div><div class="track"><div class="bar" id="progressBar"></div></div><div class="progress-meta"><span id="startLabel">Başlangıç</span><span id="endLabel">Hedef tarihi</span></div></section>
+<section class="panel"><div class="section-head"><h2>Hedeflerim</h2><span class="muted" id="eventCount">0 hedef</span></div><div class="rowbtn"><button class="btn" id="newBtn" style="margin-top:0">＋ Yeni hedef ekle</button><button class="btn secondary" id="exportBtn" style="margin-top:0">Dışa aktar</button></div><div id="events" class="events"></div></section>
+<section class="panel" id="editor"><div class="section-head"><h2 id="formTitle">Yeni hedef oluştur</h2><span class="muted">Cihazında saklanır</span></div>
+<div class="fields">
+<div class="field full"><label for="name">Hedef adı *</label><input id="name" maxlength="80" placeholder="Örn. Yeni başlangıç"></div>
+<div class="field"><label for="date">Tarih *</label><input id="date" type="date" required></div><div class="field"><label for="time">Saat</label><input id="time" type="time" value="00:00"></div>
+<div class="field"><label for="category">Kategori</label><select id="category"><option value="🎯">Kişisel hedef</option><option value="✈️">Seyahat</option><option value="🎓">Eğitim</option><option value="💼">Kariyer</option><option value="🎉">Etkinlik</option><option value="❤️">Özel gün</option><option value="✨">Diğer</option></select></div>
+<div class="field"><label for="color">Tema</label><select id="color"><option value="mint">Mint yeşili</option><option value="blue">Okyanus mavisi</option><option value="purple">Mor gece</option><option value="orange">Gün batımı</option></select></div>
+<div class="field full"><label for="note">Not (isteğe bağlı)</label><textarea id="note" maxlength="300" placeholder="Bu hedef senin için neden önemli?"></textarea></div>
+</div>
+<label class="checkrow"><input id="favorite" type="checkbox"> Ana ekranda öne çıkar</label>
+<div class="rowbtn"><button class="btn" id="saveBtn">Hedefi kaydet</button><button class="btn secondary" id="cancelBtn">Temizle</button></div>
+<div class="rowbtn"><button class="btn secondary" id="defaultBtn">5 Şubat 2027'ye dön</button><button class="btn danger" id="deleteBtn" hidden>Bu hedefi sil</button></div>
+</section>
+<div class="foot">CANLI SAYAÇ · Saat dilimi: Türkiye (UTC+3)<br>Hedeflerin yalnızca bu tarayıcıda saklanır. Yedek almak için “Dışa aktar”ı kullan.</div>
+<div id="toast" class="toast" hidden></div>
 </main>
 <script>
-const target = new Date('2027-02-05T00:00:00+03:00').getTime();
-const $ = id => document.getElementById(id);
-function tick(){
-  let diff = Math.max(0, target - Date.now());
-  const day = 86400000, hour = 3600000, minute = 60000;
-  const d = Math.floor(diff/day); diff %= day;
-  const h = Math.floor(diff/hour); diff %= hour;
-  const m = Math.floor(diff/minute); diff %= minute;
-  const s = Math.floor(diff/1000);
-  $('days').textContent = String(d).padStart(3,'0');
-  $('hours').textContent = String(h).padStart(2,'0');
-  $('minutes').textContent = String(m).padStart(2,'0');
-  $('seconds').textContent = String(s).padStart(2,'0');
-  $('message').hidden = target > Date.now();
-}
-tick(); setInterval(tick, 250);
-if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
-  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(()=>{}));
-}
-</script>
-</body>
-</html>
+const $=id=>document.getElementById(id), KEY='geriSayimProEvents', SELECTED='geriSayimProSelected';
+const themes={mint:['#9bf3cd','#0b1020'],blue:['#91c9ff','#0b1020'],purple:['#d0a5ff','#100b20'],orange:['#ffc18d','#20110b']};
+let events=[],editingId=null,selectedId=null,toastTimer;
+function uid(){return 'e'+Date.now().toString(36)+Math.random().toString(36).slice(2,7)}
+function utc(date,time){const [y,m,d]=date.split('-').map(Number),[h,mi]=time.split(':').map(Number);return Date.UTC(y,m-1,d,h-3,mi||0,0)}
+function fmt(date,time){const [y,m,d]=date.split('-').map(Number),months=['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];return `${d} ${months[m-1]} ${y}`+(time&&time!=='00:00'?' · '+time:'')}
+function defaultEvent(){return {id:uid(),name:'5 Şubat 2027',date:'2027-02-05',time:'00:00',category:'🎯',color:'mint',note:'',favorite:true,createdAt:Date.now()}}
+function load(){try{events=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){events=[]}if(!Array.isArray(events))events=[];if(!events.length)events=[defaultEvent()];try{selectedId=localStorage.getItem(SELECTED)}catch(e){}if(!events.some(e=>e.id===selectedId))selectedId=(events.find(e=>e.favorite)||events[0]).id;persist();renderAll()}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(events));localStorage.setItem(SELECTED,selectedId||'')}catch(e){showToast('Tarayıcı depolaması kullanılamıyor. Hedefler kaydedilemeyebilir.')}}
+function selected(){return events.find(e=>e.id===selectedId)||events[0]}
+function showToast(s){$('toast').textContent=s;$('toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('toast').hidden=true,2600)}
+function renderAll(){renderEvents();renderHero();$('eventCount').textContent=events.length+' hedef'+(events.length===1?'':'');}
+function renderHero(){const e=selected();if(!e)return;$('heroTitle').textContent=e.name;$('heroSub').textContent=fmt(e.date,e.time)+' · '+(e.note||'Hedefine kalan süre');document.title=e.name+' — Geri Sayım';document.documentElement.style.setProperty('--accent',(themes[e.color]||themes.mint)[0]);$('endLabel').textContent=fmt(e.date,e.time);tick()}
+function renderEvents(){const root=$('events');root.innerHTML='';const sorted=[...events].sort((a,b)=>(b.favorite?1:0)-(a.favorite?1:0)||utc(a.date,a.time)-utc(b.date,b.time));if(!sorted.length){root.innerHTML='<div class="empty">Henüz hedef yok. İlk hedefini oluştur!</div>';return}sorted.forEach(e=>{const el=document.createElement('div');el.className='event-card';const icon=document.createElement('div');icon.className='event-icon';icon.textContent=e.category||'🎯';const info=document.createElement('div');info.className='event-info';const title=document.createElement('div');title.className='event-title';title.textContent=(e.favorite?'★ ':'')+e.name;const date=document.createElement('div');date.className='event-date';date.textContent=fmt(e.date,e.time);info.append(title,date);if(e.note){const note=document.createElement('div');note.className='event-date';note.textContent=e.note;info.append(note)}const actions=document.createElement('div');actions.className='event-actions';const view=document.createElement('button');view.className='smallbtn';view.textContent=e.id===selectedId?'Gösteriliyor':'Göster';view.onclick=()=>{selectedId=e.id;persist();renderAll()};const edit=document.createElement('button');edit.className='smallbtn';edit.textContent='Düzenle';edit.onclick=()=>editEvent(e.id);actions.append(view,edit);el.append(icon,info,actions);root.append(el)})}
+function tick(){const e=selected();if(!e)return;let diff=Math.max(0,utc(e.date,e.time)-Date.now()),target=utc(e.date,e.time),day=86400000,hour=3600000,minute=60000;const d=Math.floor(diff/day);diff%=day;const h=Math.floor(diff/hour);diff%=hour;const m=Math.floor(diff/minute);diff%=minute;const s=Math.floor(diff/1000);$('days').textContent=String(d).padStart(3,'0');$('hours').textContent=String(h).padStart(2,'0');$('minutes').textContent=String(m).padStart(2,'0');$('seconds').textContent=String(s).padStart(2,'0');const start=Number(e.createdAt)||Date.now(),span=Math.max(1,target-start),pct=Math.min(100,Math.max(0,(Date.now()-start)/span*100));$('progressPct').textContent=(target<=Date.now()?'Tamamlandı':pct.toFixed(1)+'%');$('progressBar').style.width=(target<=Date.now()?100:pct)+'%';$('startLabel').textContent='Hedef oluşturuldu';}
+function clearForm(){editingId=null;$('formTitle').textContent='Yeni hedef oluştur';$('name').value='';$('date').value='';$('time').value='00:00';$('category').value='🎯';$('color').value='mint';$('note').value='';$('favorite').checked=false;$('deleteBtn').hidden=true;$('saveBtn').textContent='Hedefi kaydet'}
+function editEvent(id){const e=events.find(x=>x.id===id);if(!e)return;editingId=id;$('formTitle').textContent='Hedefi düzenle';$('name').value=e.name;$('date').value=e.date;$('time').value=e.time||'00:00';$('category').value=e.category||'🎯';$('color').value=e.color||'mint';$('note').value=e.note||'';$('favorite').checked=!!e.favorite;$('deleteBtn').hidden=false;$('saveBtn').textContent='Değişiklikleri kaydet';$('editor').scrollIntoView({behavior:'smooth',block:'start'})}
+$('saveBtn').onclick=()=>{const name=$('name').value.trim(),date=$('date').value,time=$('time').value||'00:00';if(!name){showToast('Hedefine bir isim ver.');$('name').focus();return}if(!date){showToast('Bir hedef tarihi seç.');$('date').focus();return}const val={name,date,time,category:$('category').value,color:$('color').value,note:$('note').value.trim(),favorite:$('favorite').checked};if(editingId){events=events.map(e=>e.id===editingId?{...e,...val}:e);selectedId=editingId}else{const e={id:uid(),...val,createdAt:Date.now()};events.push(e);selectedId=e.id}persist();renderAll();clearForm();showToast('Hedef kaydedildi.');window.scrollTo({top:0,behavior:'smooth'})};
+$('newBtn').onclick=()=>{clearForm();$('editor').scrollIntoView({behavior:'smooth',block:'start'});$('name').focus()};
+$('cancelBtn').onclick=()=>{clearForm();showToast('Form temizlendi.')};
+$('deleteBtn').onclick=()=>{if(!editingId)return;events=events.filter(e=>e.id!==editingId);if(!events.length)events=[defaultEvent()];if(!events.some(e=>e.id===selectedId))selectedId=events[0].id;persist();renderAll();clearForm();showToast('Hedef silindi.')};
+$('defaultBtn').onclick=()=>{const e=defaultEvent();e.favorite=true;events.push(e);selectedId=e.id;persist();renderAll();clearForm();showToast('5 Şubat 2027 hedefi eklendi.')};
+$('exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify(events,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='geri-sayim-yedek.json';a.click();URL.revokeObjectURL(url);showToast('Yedek dosyası indirildi.')};
+load();setInterval(tick,250);
+if('serviceWorker'in navigator&&location.protocol.startsWith('http'))addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script></body></html>
